@@ -17,3 +17,10 @@ Test 1002 - Login should succeed with valid credentials
     Saisir Identifiants Valides
     Cliquer Sur Le Bouton Submit
     Fermer Navigateur
+
+
+Test 1003 - Login Should Fail With Missing Credentials
+    Ouvrir Navigateur Et Accéder À La Home Page
+    Clique sur Login
+    Laisser Champs Vides Et Soumettre
+    Fermer Navigateur

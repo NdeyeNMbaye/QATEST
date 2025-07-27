@@ -27,7 +27,20 @@ Saisir Identifiants Valides
 Cliquer Sur Le Bouton Submit
     Click Button    id=submit-id
     Wait Until Page Contains    Our Happy Customers
-   
+
+
+### Test 3
+
+Clique sur Login
+    Click Link    xpath=/html/body/nav/ul/li/a
+    Wait Until Page Contains    Login
+    
+
+Laisser Champs Vides Et Soumettre
+    Click Button    id=submit-id
+    Wait Until Page Contains    Login
+
+
 Fermer Navigateur
     Close Browser
 
