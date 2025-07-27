@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-07-27T22:32:27.175049" rpa="false" schemaversion="5">
+<suite id="s1" name="Customer Service Tests" source="C:\Users\MARIAMA\Desktop\Master1_GL\QA_Test\QATEST\LAB2\testcases\customer_service_tests.robot">
+<test id="s1-t1" name="Test 1001 - Home Page Should Load" line="8">
+<kw name="Ouvrir Navigateur Et Accéder À La Home Page" owner="customer_service_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-27T22:32:27.537488" level="INFO">Opening browser 'Chrome' to base url 'https://automationplayground.com/crm/index.html'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-27T22:32:27.537202" elapsed="3.861316"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-27T22:32:31.399042" elapsed="0.043745"/>
+</kw>
+<status status="PASS" start="2025-07-27T22:32:27.536384" elapsed="3.906560"/>
+</kw>
+<kw name="Vérifier Contenu Home Page" owner="customer_service_keywords">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Customer Service</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-27T22:32:31.443970" elapsed="0.017247"/>
+</kw>
+<status status="PASS" start="2025-07-27T22:32:31.443502" elapsed="0.017924"/>
+</kw>
+<kw name="Fermer Navigateur" owner="customer_service_keywords">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-27T22:32:31.462626" elapsed="2.144804"/>
+</kw>
+<status status="PASS" start="2025-07-27T22:32:31.462081" elapsed="2.145729"/>
+</kw>
+<status status="PASS" start="2025-07-27T22:32:27.535129" elapsed="6.073872"/>
+</test>
+<status status="PASS" start="2025-07-27T22:32:27.177130" elapsed="6.435752"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Customer Service Tests" id="s1" pass="1" fail="0" skip="0">Customer Service Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
