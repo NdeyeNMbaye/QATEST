@@ -24,3 +24,33 @@ Test 1003 - Login Should Fail With Missing Credentials
     Clique sur Login
     Laisser Champs Vides Et Soumettre
     Fermer Navigateur
+
+
+Test 1003 - "Remember Me" Should Persist Email
+    Ouvrir Navigateur Et Accéder À La Home Page
+    Cliquer Sur Le Lien Login
+    Entrer Identifiants Valides
+    Cocher Checkbox Remember Me
+    Soumettre Formulaire De Connexion
+    Se Déconnecter
+    Cliquer Sur Le Lien Login
+    # Vérifier Email Prérempli
+    Fermer Navigateur
+
+
+Test 1004 - Should be able to log out
+    Ouvrir Navigateur Et Accéder À La Home Page
+    Clique Sur Le Lien Login
+    Saisi Identifiants Valides
+    Clique Sur Le Bouton Submit
+    Déconnecter
+    Fermer Navigateur
+
+
+Test 1005 - Customers Page Should Display Multiple Customers
+    Ouvrir Navigateur Et Accéder À La Home Page
+    Cliquer Sur Le Lien Login
+    Saisir Identifiants Valides
+    Cliquer Sur Le Bouton Submit
+    Vérifier Qu’il Y A Plusieurs Clients
+    Fermer Navigateur
