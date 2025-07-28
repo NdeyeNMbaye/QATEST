@@ -64,3 +64,13 @@ Test 1005 - Customers Page Should Display Multiple Customers
     Fill Customer Form
     Customer Should Be Added Successfully
     Fermer Navigateur
+
+1007 - Should be able to cancel adding new customer
+    Ouvrir Navigateur Et Accéder À La Home Page
+    Cliquer Sur Le Lien Login
+    Saisir Identifiants Valides
+    Cliquer Sur Le Bouton Submit
+    Go To Add Customer Page
+    Cancel Add Customer
+    Added Cancel
+    Fermer Navigateur

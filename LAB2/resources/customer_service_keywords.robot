@@ -61,10 +61,10 @@ Se Déconnecter
     Click Link    xpath=/html/body/nav/ul/li/a
     Wait Until Page Contains    Signed Out
 
-# Vérifier Email Prérempli
-#     Click Link    xpath=/html/body/nav/ul/li/a
-#     Sleep    2s
-#     Element Attribute Value Should Be    id=email-id    value    ${USERNAME}
+Vérifier Email Prérempli
+    Click Link    xpath=/html/body/nav/ul/li/a
+    Sleep    2s
+    Element Attribute Value Should Be    id=email-id    value    ${USERNAME}
 
 
 
@@ -101,15 +101,29 @@ Go To Add Customer Page
 
 Fill Customer Form
     Input Text    id=EmailAddress    ${EMAIL}
+    Sleep    2s
     Input Text    id=FirstName    ${FIRST_NAME}
+    Sleep    2s
     Input Text    id=LastName    ${LAST_NAME}
+    Sleep    2s
     Input Text    id=City    ${CITY}
+    Sleep    2s
     Select From List By Value    id=StateOrRegion    ${STATE}
+    Sleep    2s
     Select Radio Button    gender    ${GENDER}
+    Sleep    2s
     Select Checkbox    name=promos-name
+    Sleep    2s
     Click Button    xpath=//*[@id="loginform"]/div/div/div/div/form/button
 
 Customer Should Be Added Successfully
+    Wait Until Page Contains    Our Happy Customers
+
+### Test 7
+    
+Cancel Add Customer
+    Click Element    xpath=//*[@id="loginform"]/div/div/div/div/form/a
+Added Cancel
     Wait Until Page Contains    Our Happy Customers
 
 Fermer Navigateur
