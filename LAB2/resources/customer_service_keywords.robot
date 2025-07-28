@@ -94,6 +94,24 @@ Vérifier Qu’il Y A Plusieurs Clients
     Should Be True    ${row_count} > 1
 
 
+### Test 6
+
+Go To Add Customer Page
+    Click Element    id=new-customer
+
+Fill Customer Form
+    Input Text    id=EmailAddress    ${EMAIL}
+    Input Text    id=FirstName    ${FIRST_NAME}
+    Input Text    id=LastName    ${LAST_NAME}
+    Input Text    id=City    ${CITY}
+    Select From List By Value    id=StateOrRegion    ${STATE}
+    Select Radio Button    gender    ${GENDER}
+    Select Checkbox    name=promos-name
+    Click Button    xpath=//*[@id="loginform"]/div/div/div/div/form/button
+
+Customer Should Be Added Successfully
+    Wait Until Page Contains    Our Happy Customers
+
 Fermer Navigateur
     Close Browser
 

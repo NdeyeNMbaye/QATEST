@@ -54,3 +54,13 @@ Test 1005 - Customers Page Should Display Multiple Customers
     Cliquer Sur Le Bouton Submit
     Vérifier Qu’il Y A Plusieurs Clients
     Fermer Navigateur
+
+1006 - Should be able to add new customer
+    Ouvrir Navigateur Et Accéder À La Home Page
+    Cliquer Sur Le Lien Login
+    Saisir Identifiants Valides
+    Cliquer Sur Le Bouton Submit
+    Go To Add Customer Page
+    Fill Customer Form
+    Customer Should Be Added Successfully
+    Fermer Navigateur
