@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.3 on win32)" generated="2025-08-07T03:21:47.369668" rpa="false" schemaversion="5">
+<suite id="s1" name="Testcomande" source="C:\Users\Ndeye Mbaye\Desktop\QA Test\TESTMONGOEXAM\LAB_1\TestCases\testcomande.robot">
+<test id="s1-t1" name="Créer Une Commande Valide" line="12">
+<kw name="Connect To Mongo" owner="mongo_library">
+<msg time="2025-08-07T03:21:48.556537" level="INFO">[MongoLibrary] Connexion MongoDB réussie.</msg>
+<arg>${uri}</arg>
+<arg>${db_name}</arg>
+<status status="PASS" start="2025-08-07T03:21:47.598981" elapsed="0.957758"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-07T03:21:48.557785" level="INFO">${user_id} = user123</msg>
+<var>${user_id}</var>
+<arg>user123</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-07T03:21:48.557292" elapsed="0.000521"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T03:21:48.558810" level="INFO">${product1} = {'title': 'Produit1', 'quantite': '2', 'prix': '50'}</msg>
+<var>${product1}</var>
+<arg>title=Produit1</arg>
+<arg>quantite=2</arg>
+<arg>prix=50</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T03:21:48.558161" elapsed="0.000738"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T03:21:48.559837" level="INFO">${product2} = {'title': 'Produit2', 'quantite': '1', 'prix': '100'}</msg>
+<var>${product2}</var>
+<arg>title=Produit2</arg>
+<arg>quantite=1</arg>
+<arg>prix=100</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T03:21:48.559410" elapsed="0.000480"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-07T03:21:48.560616" level="INFO">${products} = [{'title': 'Produit1', 'quantite': '2', 'prix': '50'}, {'title': 'Produit2', 'quantite': '1', 'prix': '100'}]</msg>
+<var>${products}</var>
+<arg>${product1}</arg>
+<arg>${product2}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-07T03:21:48.560305" elapsed="0.000354"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T03:21:48.561285" level="INFO">${commande} = {'userId': 'user123', 'products': [{'title': 'Produit1', 'quantite': '2', 'prix': '50'}, {'title': 'Produit2', 'quantite': '1', 'prix': '100'}]}</msg>
+<var>${commande}</var>
+<arg>userId=${user_id}</arg>
+<arg>products=${products}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T03:21:48.561028" elapsed="0.000281"/>
+</kw>
+<kw name="Creer Commande" owner="mongo_library">
+<msg time="2025-08-07T03:21:48.561640" level="FAIL">Keyword 'mongo_library.Creer Commande' expected 2 to 3 arguments, got 1.</msg>
+<var>${result}</var>
+<arg>${commande}</arg>
+<status status="FAIL" start="2025-08-07T03:21:48.561504" elapsed="0.000175">Keyword 'mongo_library.Creer Commande' expected 2 to 3 arguments, got 1.</status>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${result}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2025-08-07T03:21:48.561884" elapsed="0.000022"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${COMMANDE_ID}</arg>
+<arg>${result}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-08-07T03:21:48.562105" elapsed="0.000023"/>
+</kw>
+<doc>C-01 Scénario passant - création d’une commande valide</doc>
+<status status="FAIL" start="2025-08-07T03:21:47.598061" elapsed="0.965098">Keyword 'mongo_library.Creer Commande' expected 2 to 3 arguments, got 1.</status>
+</test>
+<test id="s1-t2" name="Créer Commande Sans UserId (Invalide)" line="24">
+<kw name="Connect To Mongo" owner="mongo_library">
+<msg time="2025-08-07T03:21:49.403330" level="INFO">[MongoLibrary] Connexion MongoDB réussie.</msg>
+<arg>${uri}</arg>
+<arg>${db_name}</arg>
+<status status="PASS" start="2025-08-07T03:21:48.565492" elapsed="0.838013"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T03:21:49.404545" level="INFO">${commande} = {'products': "[{'title': 'Prod', 'quantite': 1, 'prix': 20}]"}</msg>
+<var>${commande}</var>
+<arg>products=[{'title': 'Prod', 'quantite': 1, 'prix': 20}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T03:21:49.404141" elapsed="0.000452"/>
+</kw>
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Creer Commande" owner="mongo_library">
+<msg time="2025-08-07T03:21:49.405177" level="FAIL">Keyword 'mongo_library.Creer Commande' expected 2 to 3 arguments, got 1.</msg>
+<arg>${commande}</arg>
+<status status="FAIL" start="2025-08-07T03:21:49.405020" elapsed="0.000199">Keyword 'mongo_library.Creer Commande' expected 2 to 3 arguments, got 1.</status>
+</kw>
+<arg>*</arg>
+<arg>Creer Commande</arg>
+<arg>${commande}</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-08-07T03:21:49.404887" elapsed="0.000498"/>
+</kw>
+<doc>C-02 Création commande sans userId =&gt; erreur</doc>
+<status status="PASS" start="2025-08-07T03:21:48.564792" elapsed="0.840965"/>
+</test>
+<test id="s1-t3" name="Créer Commande Avec Produits Vides (Invalide)" line="30">
+<kw name="Connect To Mongo" owner="mongo_library">
+<msg time="2025-08-07T03:21:50.222874" level="INFO">[MongoLibrary] Connexion MongoDB réussie.</msg>
+<arg>${uri}</arg>
+<arg>${db_name}</arg>
+<status status="PASS" start="2025-08-07T03:21:49.408141" elapsed="0.814882"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T03:21:50.223716" level="INFO">${commande} = {'userId': 'user123', 'products': '[]'}</msg>
+<var>${commande}</var>
+<arg>userId=user123</arg>
+<arg>products=[]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T03:21:50.223462" elapsed="0.000291"/>
+</kw>
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Creer Commande" owner="mongo_library">
+<msg time="2025-08-07T03:21:50.224302" level="FAIL">Keyword 'mongo_library.Creer Commande' expected 2 to 3 arguments, got 1.</msg>
+<arg>${commande}</arg>
+<status status="FAIL" start="2025-08-07T03:21:50.224179" elapsed="0.000154">Keyword 'mongo_library.Creer Commande' expected 2 to 3 arguments, got 1.</status>
+</kw>
+<arg>*</arg>
+<arg>Creer Commande</arg>
+<arg>${commande}</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-08-07T03:21:50.224057" elapsed="0.000361"/>
+</kw>
+<doc>C-03 Création commande avec produits vides =&gt; erreur</doc>
+<status status="PASS" start="2025-08-07T03:21:49.407314" elapsed="0.817363"/>
+</test>
+<test id="s1-t4" name="Lire Toutes Les Commandes" line="36">
+<kw name="Connect To Mongo" owner="mongo_library">
+<msg time="2025-08-07T03:21:51.051266" level="INFO">[MongoLibrary] Connexion MongoDB réussie.</msg>
+<arg>${uri}</arg>
+<arg>${db_name}</arg>
+<status status="PASS" start="2025-08-07T03:21:50.226683" elapsed="0.824739"/>
+</kw>
+<kw name="Find Documents" owner="mongo_library">
+<msg time="2025-08-07T03:21:51.120682" level="INFO">${result} = []</msg>
+<var>${result}</var>
+<arg>${COLLECTION}</arg>
+<status status="PASS" start="2025-08-07T03:21:51.052021" elapsed="0.068745"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>len(${result}) &gt;= 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-08-07T03:21:51.121198" elapsed="0.000318"/>
+</kw>
+<doc>R-01 Lire toutes les commandes</doc>
+<status status="PASS" start="2025-08-07T03:21:50.226088" elapsed="0.895633"/>
+</test>
+<test id="s1-t5" name="Lire Commandes Sans Date (Invalide)" line="42">
+<kw name="Connect To Mongo" owner="mongo_library">
+<msg time="2025-08-07T03:21:51.968777" level="INFO">[MongoLibrary] Connexion MongoDB réussie.</msg>
+<arg>${uri}</arg>
+<arg>${db_name}</arg>
+<status status="PASS" start="2025-08-07T03:21:51.123188" elapsed="0.845903"/>
+</kw>
+<doc>R-02 Lire commandes avec date vide (exemple non valide)</doc>
+<status status="PASS" start="2025-08-07T03:21:51.122650" elapsed="0.846774"/>
+</test>
+<test id="s1-t6" name="Mettre à Jour Quantité Produit Valide" line="47">
+<kw name="Créer Une Commande Valide" type="SETUP">
+<msg time="2025-08-07T03:21:51.972483" level="FAIL">No keyword with name 'Créer Une Commande Valide' found.</msg>
+<status status="FAIL" start="2025-08-07T03:21:51.972427" elapsed="0.000107">No keyword with name 'Créer Une Commande Valide' found.</status>
+</kw>
+<doc>U-01 Mise à jour quantité produit valide</doc>
+<status status="FAIL" start="2025-08-07T03:21:51.970830" elapsed="0.002259">Setup failed:
+No keyword with name 'Créer Une Commande Valide' found.</status>
+</test>
+<test id="s1-t7" name="Mettre à Jour Commande Inexistante (Invalide)" line="56">
+<kw name="Connect To Mongo" owner="mongo_library">
+<msg time="2025-08-07T03:21:52.788329" level="INFO">[MongoLibrary] Connexion MongoDB réussie.</msg>
+<arg>${uri}</arg>
+<arg>${db_name}</arg>
+<status status="PASS" start="2025-08-07T03:21:51.975057" elapsed="0.813436"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-07T03:21:52.789454" level="INFO">${update_data} = {'products': "[{'title': 'ProduitX', 'quantite': 1, 'prix': 10}]"}</msg>
+<var>${update_data}</var>
+<arg>products=[{'title': 'ProduitX', 'quantite': 1, 'prix': 10}]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-07T03:21:52.789145" elapsed="0.000338"/>
+</kw>
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Mettre A Jour Commande">
+<msg time="2025-08-07T03:21:52.790630" level="FAIL">No keyword with name 'Mettre A Jour Commande' found.</msg>
+<arg>fake_id</arg>
+<arg>${update_data}</arg>
+<status status="FAIL" start="2025-08-07T03:21:52.790603" elapsed="0.000062">No keyword with name 'Mettre A Jour Commande' found.</status>
+</kw>
+<arg>*</arg>
+<arg>Mettre A Jour Commande</arg>
+<arg>fake_id</arg>
+<arg>${update_data}</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-08-07T03:21:52.789790" elapsed="0.000948"/>
+</kw>
+<doc>U-02 Mise à jour commande inexistante =&gt; erreur</doc>
+<status status="PASS" start="2025-08-07T03:21:51.974575" elapsed="0.816417"/>
+</test>
+<test id="s1-t8" name="Supprimer Commande Valide" line="62">
+<kw name="Créer Une Commande Valide" type="SETUP">
+<msg time="2025-08-07T03:21:52.793408" level="FAIL">No keyword with name 'Créer Une Commande Valide' found.</msg>
+<status status="FAIL" start="2025-08-07T03:21:52.793370" elapsed="0.000085">No keyword with name 'Créer Une Commande Valide' found.</status>
+</kw>
+<doc>D-01 Suppression commande existante</doc>
+<status status="FAIL" start="2025-08-07T03:21:52.792300" elapsed="0.001534">Setup failed:
+No keyword with name 'Créer Une Commande Valide' found.</status>
+</test>
+<test id="s1-t9" name="Supprimer Commande Inexistante" line="68">
+<kw name="Connect To Mongo" owner="mongo_library">
+<msg time="2025-08-07T03:21:53.614364" level="INFO">[MongoLibrary] Connexion MongoDB réussie.</msg>
+<arg>${uri}</arg>
+<arg>${db_name}</arg>
+<status status="PASS" start="2025-08-07T03:21:52.795629" elapsed="0.818904"/>
+</kw>
+<kw name="Supprimer Commande" owner="mongo_library">
+<msg time="2025-08-07T03:21:53.615432" level="FAIL">ValueError: ID de commande invalide.</msg>
+<var>${count}</var>
+<arg>fake_id</arg>
+<status status="FAIL" start="2025-08-07T03:21:53.615141" elapsed="0.001427">ValueError: ID de commande invalide.</status>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${count}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2025-08-07T03:21:53.617000" elapsed="0.000038"/>
+</kw>
+<doc>D-02 Suppression commande inexistante =&gt; 0</doc>
+<status status="FAIL" start="2025-08-07T03:21:52.795118" elapsed="0.822359">ValueError: ID de commande invalide.</status>
+</test>
+<test id="s1-t10" name="Supprimer Avec Champs Vide (Invalide)" line="74">
+<kw name="Connect To Mongo" owner="mongo_library">
+<msg time="2025-08-07T03:21:54.480560" level="INFO">[MongoLibrary] Connexion MongoDB réussie.</msg>
+<arg>${uri}</arg>
+<arg>${db_name}</arg>
+<status status="PASS" start="2025-08-07T03:21:53.619678" elapsed="0.860993"/>
+</kw>
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Supprimer Commande" owner="mongo_library">
+<msg time="2025-08-07T03:21:54.481364" level="FAIL">ValueError: ID de commande invalide.</msg>
+<arg>""</arg>
+<status status="FAIL" start="2025-08-07T03:21:54.481200" elapsed="0.000844">ValueError: ID de commande invalide.</status>
+</kw>
+<arg>*</arg>
+<arg>Supprimer Commande</arg>
+<arg>""</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-08-07T03:21:54.481011" elapsed="0.001176"/>
+</kw>
+<doc>D-03 Suppression avec champ vide =&gt; erreur</doc>
+<status status="PASS" start="2025-08-07T03:21:53.618947" elapsed="0.863527"/>
+</test>
+<status status="FAIL" start="2025-08-07T03:21:47.371624" elapsed="7.112016"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Testcomande" id="s1" pass="6" fail="4" skip="0">Testcomande</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
